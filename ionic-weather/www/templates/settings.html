@@ -1,0 +1,26 @@
+<ion-view view-title="{{title}}" ng-cloak>
+    <ion-content>
+        <div class="row">
+            <div class="col padding padding"><h4>{{languageLabel}}<h4></div>
+            <div class="col-25">
+                <md-menu style="float:right;">
+                    <md-button class="md-icon-button" ng-click="$mdOpenMenu()">
+                        <md-icon md-menu-origin class="ion-android-arrow-dropdown-circle" md-menu-align-target style="font-size:3em;margin-top:-30px;"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ng-click="changeLanguage('en')">
+                                English
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="changeLanguage('es')">
+                                Español
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

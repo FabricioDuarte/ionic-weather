@@ -1,0 +1,90 @@
+<ion-view view-title="{{title}}" ng-cloak>
+    <!-- Add new location -->
+    <md-button class="md-fab md-primary" style="position:fixed; bottom:15px; right:15px;" aria-label="addNewLocation" ng-click="addNewLocation()">
+        <md-icon class="ion-plus-round" style="font-size: 2.2em;margin-top: -36px;" ></md-icon>
+    </md-button>
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
+        </ion-refresher>
+        <md-content class="md-padding" style="background-color:rgb(238,238,238)">
+            <!-- First card -->
+            <md-card>
+                <md-card-content>
+                    <md-menu style="float:right">
+                        <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+                            <md-icon md-menu-origin md-svg-icon="img/ic_more_vert_24px.svg"></md-icon>
+                        </md-button>
+                        <md-menu-content width="4">
+                            <md-menu-item ng-repeat="location in locations">
+                                <md-button ng-click="changeLocation(location)">
+                                    {{location.name}}
+                                </md-button>
+                            </md-menu-item>                            
+                        </md-menu-content>
+                    </md-menu>
+                    <h1>{{currentWeather.name}}</h1>
+                    <h3>{{currentWeather.weather[0].description | capitalize}}</h3>
+                    <div class="row">
+                        <div class="col">
+                            <img src="http://openweathermap.org/img/w/{{currentWeather.weather[0].icon}}.png" style="height:100px;" />
+                        </div>
+                        <div layout="row" layout-align="end center">
+                            <span style="font-size:6em">{{currentTemp}}°</h1>
+                  </div>
+               </div>
+            </md-card-content>
+            <!--<div class="md-actions" layout="row" layout-align="end center">
+               <md-button>Action 1</md-button>
+               <md-button>Action 2</md-button>
+               </div>-->
+         </md-card>
+
+         <!-- Second card -->
+         <md-card>
+            <md-content>
+               <md-list>                 
+                  <md-list-item class="md-2-line">
+                    <md-icon class="ion-waterdrop" style="font-size: 2.5em; color: black; padding-left: 10px;"></md-icon> 
+                     <div class="md-list-item-text">
+                        <h3>{{ 'HUMIDITY' | translate }}</h3>
+                        <h4>{{currentWeather.main.humidity}}%</h4>
+                     </div>
+                  </md-list-item> 
+                  <md-divider></md-divider>     
+                  <md-list-item class="md-2-line">
+                     <md-icon class="ion-arrow-up-c" style="font-size: 3em; color: black; padding-left: 10px;"></md-icon>                     
+                     <div class="md-list-item-text">
+                       <h3>{{ 'TEMP_MAX' | translate }}</h3>
+                        <h4>{{currentWeather.main.temp_max}}°</h4>
+                     </div>
+                  </md-list-item> 
+                  <md-divider></md-divider>   
+                  <md-list-item class="md-2-line">
+                     <md-icon class="ion-arrow-down-c" style="font-size: 3em; color: black; padding-left: 10px;"></md-icon>      
+                     <div class="md-list-item-text">
+                       <h3>{{ 'TEMP_MIN' | translate }}</h3>
+                        <h4>{{currentWeather.main.temp_min}}°</h4>
+                     </div>
+                  </md-list-item> 
+                  <md-divider></md-divider>   
+                  <md-list-item class="md-2-line">
+                     <md-icon class="ion-clock" style="font-size: 2.5em; color: black; padding-left: 10px;"></md-icon>      
+                     <div class="md-list-item-text">
+                       <h3>{{ 'PRESSURE' | translate }}</h3>
+                        <h4>{{currentWeather.main.pressure}} hpa</h4>
+                     </div>
+                  </md-list-item> 
+                  <md-divider></md-divider>      
+                  <md-list-item class="md-2-line" ng-if="currentWeather.wind">
+                     <md-icon class="ion-arrow-graph-up-right" style="font-size: 2.5em; color: black; padding-left: 10px;"></md-icon>      
+                     <div class="md-list-item-text">
+                       <h3>{{ 'WIND' | translate }}</h3>
+                        <h4>{{currentWeather.wind.speed}} Km/h ({{currentWeather.wind.deg}}°)</h4>
+                     </div>
+                  </md-list-item>    
+               </md-list>
+            </md-content>
+         </md-card>
+      </md-content>
+   </ion-content>
+</ion-view>

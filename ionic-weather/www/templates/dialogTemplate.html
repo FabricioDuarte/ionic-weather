@@ -1,0 +1,27 @@
+<md-dialog aria-label="Agregar un nuevo lugar">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 style="color:white">Agregar un nuevo lugar</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-svg-src="img/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content layout-padding class="autoScroll">
+    <md-input-container md-no-float>
+      <md-icon md-svg-src="img/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+      <input ng-model="modal.place" type="text" placeholder="Lugar" >
+    </md-input-container>
+  </md-dialog-content>
+  <div class="md-actions md-default-theme" layout="row">
+    <md-button ng-click="cancel()" class="md-primary">
+     Cancelar
+    </md-button>
+    <md-button ng-click="add()" class="md-primary">
+      Agregar
+    </md-button>
+  </div>
+  </form>
+</md-dialog>
